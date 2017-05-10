@@ -12,7 +12,7 @@ export default class Kitten{
 
 	constructor() {
 
-		this.cat = mongoose.model('cats', {
+		this.cat = monggitoose.model('cats', {
 
 			name: { type: String, required: true, unique: true },
 			color: { type: String, required: true},

@@ -24,9 +24,15 @@ export default class KittensCtrl {
     }
 
     addKitten(req, res) {
-        res.render('addKitten.ejs', {
-            kittens: kittens
-        });
+        const kittens = this.kitten.findKittens();
+        kittens
+            .then(result => {
+                res.render('index.twig', {
+                    kittens: result
+                });
+            })
+            .catch()
+        ;
     }
 
     kittensAdopt(req, res) {
