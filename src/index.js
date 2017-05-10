@@ -1,10 +1,9 @@
 import Connection from './Connection';
+import Server from './Server';
 import yaml from 'yamljs';
 import path from 'path';
 import Server from './Server';
 import Kitten from './Kitten';
-
-
 
 
 // c'est le dossier de config qu'on passe en parametre du contrcuteur

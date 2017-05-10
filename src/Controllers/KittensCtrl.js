@@ -6,10 +6,12 @@ export default class KittensCtrl {
     constructor(kitten) {
         this.kitten = kitten;
 
+
         }
 
 
     findKittens(req, res) {
+
         const kittens = this.kitten.findKittens();
         kittens
             .then(result => {
@@ -19,35 +21,34 @@ export default class KittensCtrl {
             })
             .catch(e => console.log(e))
         ;
-        
     }
 
     addKitten(req, res) {
-        res.render('addKitten.ejs', {
+        res.render('addKitten.twig', {
             kittens: kittens
         });
     }
 
     kittensAdopt(req, res) {
-        res.render('kittensAdopt.ejs', {
+        res.render('kittensAdopt.twig', {
             kittens: kittens
         });
     }
 
     findKitten(req, res) {
-        res.render('findKitten.ejs', {
+        res.render('findKitten.twig', {
             kittens: kittens
         });
     }
 
     updateKitten(req, res) {
-        res.render('updateKitten.ejs', {
+        res.render('updateKitten.twig', {
             kittens: kittens
         });
     }
 
     deleteKitten(req, res) {
-        res.render('deleteKitten.ejs', {
+        res.render('deleteKitten.twig', {
             kittens: kittens
         });
     }
