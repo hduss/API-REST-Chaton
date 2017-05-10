@@ -87,22 +87,10 @@ export default class Kitten{
 	findKittens() {
 
 		return new Promise((resolve, reject) => {
-
-
 			this.cat.find()
-
-			.then(
-
-				results => resolve(results)
-
-				)
-
-			.catch( e => reject(e.message));
-			
+				.then(results => resolve(results))
+				.catch( e => reject(e.message));
 		});
-
-
-
 
 	}
 

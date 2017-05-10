@@ -1,21 +1,26 @@
 import twig from 'twig';
+import Kitten from './../Kitten';
 
 
 export default class KittensCtrl {
-    constructor() {
-        this.twig = twig;
+    constructor(kitten) {
+        this.kitten = kitten;
 
-    }
+
+        }
 
 
     findKittens(req, res) {
-        // importer class Théo + methods
-        // const kitten = new Kitten()
-        // const kittens = kitten.findKittens()
-        // res.render('findKitten.twig', {
-        //     kittens: kittens
-        // });
-        res.json({});
+
+        const kittens = this.kitten.findKittens();
+        kittens
+            .then(result => {
+                res.render('index.twig', {
+                    kittens: result
+                });
+            })
+            .catch(e => console.log(e))
+        ;
     }
 
     addKitten(req, res) {
