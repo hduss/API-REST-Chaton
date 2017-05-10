@@ -1,6 +1,8 @@
 import Connection from './Connection';
+import Server from './Server';
 import yaml from 'yamljs';
 import path from 'path';
+
 
 import Kitten from './Kitten';
 
@@ -18,8 +20,11 @@ connection.connect(config.default.db.ip_address,config.default.db.port,config.de
 	.then( res => {
 		console.log("connected");
 
-		const cats = new Kitten();
-		console.log(cats);
+
+		const server = new Server(3000);
+		server.run();
+		// const cats = new Kitten();
+		// console.log(cats);
 
 		
 
