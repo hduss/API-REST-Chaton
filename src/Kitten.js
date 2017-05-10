@@ -1,23 +1,36 @@
 //
-const mongoose = require('mongoose');
-const yaml = require('yamljs');
-const CatsModel = require('./src/models/cats');
+import mongoose from 'mongoose';
+import yaml from'yamljs';
 
 
 
-class Kitten{
+
+
+
+export default class Kitten{
 
 
 	constructor() {
 
-		catsModel = new CatsModel();
+		this.cat = mongoose.model('cats', {
+
+			name: { type: String, required: true, unique: true },
+			color: { type: String, required: true},
+			quality1: { type: String, required: true},
+			quality2: { type: String, required: false},
+			defaults: { type: String, required: false},
+			bestFood: { type: String, required: false},
+			available: { type: Boolean, required: true}
+
+		});
+		
 
 	}
 
 
 	addKitten(name, color, quality1, quality2, defaults, bestFood, available) {
 
-		catsModel.create({
+		this.cat.create({
 
 			name: name,
 			color: color,
@@ -27,20 +40,32 @@ class Kitten{
 			bestFood: bestFood,
 			available: available
 
-		});
+		})
+			.then(
+
+				result => console.log(result)
+				)
+
+			.catch( e => console.log(e.message))
+
+			;
 	}
 
 	findKitten(name, color) {
 
-		catsModel.findOne({
+		this.cat.findOne({
 
 			name: name,
 			color: color
 
-		}).then(
+		})
+
+		.then(
 
 			result => console.log(result)
-			).catch( e => console.log(e.message));
+			)
+
+		.catch( e => console.log(e.message));
 
 	}
 
@@ -48,11 +73,15 @@ class Kitten{
 
 	findKittens() {
 
-		catsModel.find().then(
+		this.cat.find()
+
+		.then(
 
 			results => console.log(results)
 
-			).catch( e => console.log(e.message));
+			)
+
+		.catch( e => console.log(e.message));
 
 
 
@@ -62,7 +91,7 @@ class Kitten{
 	// param -> true || false
 	kittensAdopt(param) {
 
-		catsModel.findOne({
+		this.cat.findOne({
 
 			available: param
 
@@ -78,7 +107,7 @@ class Kitten{
 /*
 	updateKitten(name, ) {
 
-		catsModel.findOne({
+		this.cat.findOne({
 
 			name: name;
 
@@ -103,17 +132,22 @@ Tank.findById(id, function (err, tank) {
 
 	removeKitten(name, color) {
 
-		catsModel.findOne({
+		this.cat.findOne({
 
 			name: name,
 			color: color
 		}).then(
 
 			result => {
-				catsModel.remove({name: result.name}).then(
+
+				this.cat.remove({name: result.name})
+
+				.then(
 
 					result => console.log(result)
-					).catch( e => console.log(e.message));
+					)
+				.catch( e => console.log(e.message));
+
 			});
 	}
 
