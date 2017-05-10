@@ -21,13 +21,17 @@ connection.connect(config.default.db.ip_address,config.default.db.port,config.de
 		const cats = new Kitten();
 		console.log(cats);
 
-		/*cats.addKitten('boby', 'blue', 'beau', 'doux', 'il mord', 'poisson grillé', true);
+		
 
 
 	
-*/
+
 	
-	cats.updateKitten('boby', 'red', 'gentil', 'serviable', 'pue', 'viande', true);
+	//cats.removeKitten('boby', 'color');
+
+
+	cats.addKitten('boby', 'blue', 'beau','gentil' , 'il mord', 'poisson grillé', true);
+
 
 
 

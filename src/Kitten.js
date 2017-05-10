@@ -30,6 +30,8 @@ export default class Kitten{
 
 	addKitten(name, color, quality1, quality2, defaults, bestFood, available) {
 
+
+
 		this.cat.create({
 
 			name: name,
@@ -43,13 +45,20 @@ export default class Kitten{
 		})
 			.then(
 
-				result => console.log(result)
+				results => console.log(results)
 				)
 
 			.catch( e => console.log(e.message))
 
 			;
 	}
+
+
+
+
+
+
+
 
 	findKitten(name, color) {
 
@@ -71,6 +80,10 @@ export default class Kitten{
 
 
 
+
+
+
+
 	findKittens() {
 
 		this.cat.find()
@@ -86,6 +99,9 @@ export default class Kitten{
 
 
 	}
+
+
+
 
 
 	// param -> true || false
@@ -104,8 +120,14 @@ export default class Kitten{
 
 	}
 
+
+
+
+
+
 	updateKitten(name, color, quality1, quality2, defaults, bestFood, available ) {
 
+		console.log(this.color);
 
 		this.cat.findOne({
 
@@ -116,9 +138,9 @@ export default class Kitten{
 	    	results => {
 	    		results.color = color,
 	    		results.quality1 = quality1,
-	    		results.quality2 = quality2,
-	    		results.defaults = defaults,
-	    		results.bestFood = bestFood,
+	    		results.quality2 = quality2 || this.quality2,
+	    		results.defaults = defaults || this.defaults,
+	    		results.bestFood = bestFood || this.besFood,
 	    		results.available = available;
 
 	    		results.save().then(
@@ -134,45 +156,6 @@ export default class Kitten{
 	}
 
 
-
-
-/*
-	updateKitten(name, color, quality1, quality2, defaults, bestFood, available, (err, tank) => {
-
-		if (err) return handlError(err);
-
-	}) {
-
-		this.cat.findOne({
-
-			name: name;
-
-		}).then(
-
-			name = name,
-			color: color,
-			quality1: quality1,
-			quality2: quality2,
-			defaults: defaults,
-			bestFood: bestFood,
-			available: available
-r)
-
-	}
-
-
-
-Tank.findById(id, function (err, tank) {
-  if (err) return handleError(err);
-  
-  tank.size = 'large';
-  tank.save(function (err, updatedTank) {
-    if (err) return handleError(err);
-    res.send(updatedTank);
-  });
-});
-
-*/
 	removeKitten(name, color) {
 
 		this.cat.findOne({
