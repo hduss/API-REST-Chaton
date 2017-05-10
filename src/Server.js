@@ -1,5 +1,5 @@
-import express from 'express';
 import KittensCtrl from './Controllers/KittensCtrl';
+import express from 'express';
 
 export default class Server {
     constructor(port) {
