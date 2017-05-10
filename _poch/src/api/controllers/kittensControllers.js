@@ -3,10 +3,12 @@ import mongoose from 'mongoose';
 const Kitten = mongoose.model('Kittens');
 
 exports.listAll = (req, res) => {
-    Kitten.find({}, (err, kitten) => {
+    Kitten.find({}, (err, kittens) => {
         if (err)
             res.send(err);
-        res.json(kitten);
+        res.render('index.twig',{
+            kittens: kittens
+        });
     });
 };
 

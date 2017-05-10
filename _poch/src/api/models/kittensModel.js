@@ -9,7 +9,7 @@ const kittens = new Schema({
     quality2: { type: String, required: false},
     defaults: { type: String, required: false},
     bestFood: { type: String, required: false},
-    available: { type: Boolean, required: true}
+    available: { type: Boolean, defaultValue: true}
 });
 
 module.exports = mongoose.model('Kittens', kittens);

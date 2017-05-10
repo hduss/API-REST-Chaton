@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Kittens</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/styles.css" >
+</head>
+
+<body>
+<header class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-4">
+            <h1>Kittens App</h1>
+            <img src="img/chaton.jpg">
+        </div>
+        <div class="col col-lg-8">
+            <h1>Add a kitten</h1>
+            <form id="form">
+                <label for="name">Name : </label><input type="text" name="name" id="name"><br>
+                <label for="color">Color : </label><input type="text" name="color" id="color"><br>
+                <label for="quality1">Quality 1 : </label><input type="text" name="quality1" id="quality1"><br>
+                <label for="quality2">quality 2 : </label><input type="text" name="quality2" id="quality2"><br>
+                <label for="defaults">Defaults : </label><input type="text" name="defaults" id="defaults"><br>
+                <label for="bestFood">Best Food : </label><input type="text" name="bestFood" id="bestFood"><br>
+                <input type="submit" value="Add">
+            </form>
+        </div>
+    </div>
+
+</header>
+
+<div id="content">
+    <div id="kittens" class="container">
+        <h2>Kitten List</h2>
+        <div class="row justify-content-md-center">
+        {% for kitten in kittens %}
+            <div class="col col-lg-2">
+                <h3>{{ kitten.name }}</h3>
+                <ul>
+                    <li>Color : {{ kitten.color }}</li>
+                    <li>Quality 1 : {{ kitten.quality1 }}</li>
+                    <li>Quality 1 : {{ kitten.quality2 }}</li>
+                    <li>Default : {{ kitten.bestFood }}</li>
+                    <li>Available : {{ kitten.available|e }}</li>
+                </ul>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+<p class="text-center text-muted">Copyright 2017 Kittens</p>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/ajax.js"></script>
+</body>
+</html>
