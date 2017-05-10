@@ -12,9 +12,10 @@ export default class KittensCtrl {
         // importer class Théo + methods
         // const kitten = new Kitten()
         // const kittens = kitten.findKittens()
-        res.render('findKitten.ejs', {
-            kittens: kittens
-        });
+        // res.render('findKitten.ejs', {
+        //     kittens: kittens
+        // });
+        res.json({});
     }
 
     addKitten(req, res) {
