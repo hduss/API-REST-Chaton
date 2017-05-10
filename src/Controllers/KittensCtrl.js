@@ -1,9 +1,9 @@
-import ejs from 'ejs';
+import twig from 'twig';
 
 
 export default class KittensCtrl {
     constructor() {
-        this.ejs = ejs;
+        this.twig = twig;
 
     }
 
@@ -12,38 +12,38 @@ export default class KittensCtrl {
         // importer class Théo + methods
         // const kitten = new Kitten()
         // const kittens = kitten.findKittens()
-        // res.render('findKitten.ejs', {
+        // res.render('findKitten.twig', {
         //     kittens: kittens
         // });
         res.json({});
     }
 
     addKitten(req, res) {
-        res.render('addKitten.ejs', {
+        res.render('addKitten.twig', {
             kittens: kittens
         });
     }
 
     kittensAdopt(req, res) {
-        res.render('kittensAdopt.ejs', {
+        res.render('kittensAdopt.twig', {
             kittens: kittens
         });
     }
 
     findKitten(req, res) {
-        res.render('findKitten.ejs', {
+        res.render('findKitten.twig', {
             kittens: kittens
         });
     }
 
     updateKitten(req, res) {
-        res.render('updateKitten.ejs', {
+        res.render('updateKitten.twig', {
             kittens: kittens
         });
     }
 
     deleteKitten(req, res) {
-        res.render('deleteKitten.ejs', {
+        res.render('deleteKitten.twig', {
             kittens: kittens
         });
     }
