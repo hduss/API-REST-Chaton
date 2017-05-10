@@ -1,15 +1,59 @@
 //
 const mongoose = require('mongoose');
-
-const db = mongoose.connection;
-
-mongoose.Promise = global.Promise;
+const catsModel = require('./models/Cats');
 
 
-mongoose.connect('mongodb://localhost:27017/chatons');
+class Mongoose() {
+
+	constructor() {
+
+		catsModel.create({
+
+		})
 
 
-db.on('connect', () => {
+	}
 
 
-});
+	initDb() {
+
+		mongoose.connect('mongodb://localhost:27017/chatons', (err) => {
+
+			if (err) {
+
+				throw new Error();
+			}
+		});
+
+		mongoose.promise = global.Promise;
+	}
+
+
+	findCats() {
+
+		catsModel.find().then(
+			results => console.log(results)
+			).catch( e => console.log(e.message));
+
+
+
+	}
+
+
+	findByAvailable() {
+
+		catsModel.find().then(
+			results => {
+				results.available = true;
+			})
+
+	}
+
+	catsAdopt() {
+
+
+	}
+
+
+
+}
