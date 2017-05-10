@@ -58,8 +58,6 @@ export default class Kitten{
 
 
 
-
-
 	findKitten(name, color) {
 
 		this.cat.findOne({
@@ -107,7 +105,7 @@ export default class Kitten{
 	// param -> true || false
 	kittensAdopt(param) {
 
-		this.cat.findOne({
+		this.cat.find({
 
 			available: param
 

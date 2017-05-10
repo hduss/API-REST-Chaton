@@ -28,9 +28,15 @@ connection.connect(config.default.db.ip_address,config.default.db.port,config.de
 
 	
 	//cats.removeKitten('boby', 'color');
+/*
+	for (var i = 50; i < 70; i++) {
 
+		cats.addKitten('boby' +i, 'blue' + i, 'beau' +i,'gentil' + i, 'il mord' +i, 'poisson grillé' +i , false);
+		
+	};
 
-	cats.addKitten('boby', 'blue', 'beau','gentil' , 'il mord', 'poisson grillé', true);
+	*/
+
 
 
 
