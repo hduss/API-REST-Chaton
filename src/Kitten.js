@@ -105,7 +105,11 @@ export default class Kitten{
 	}
 
 /*
-	updateKitten(name, ) {
+	updateKitten(name, color, quality1, quality2, defaults, bestFood, available, (err, tank) => {
+
+		if (err) return handlError(err);
+
+	}) {
 
 		this.cat.findOne({
 
@@ -113,7 +117,14 @@ export default class Kitten{
 
 		}).then(
 
-			color = this.color)
+			name = name,
+			color: color,
+			quality1: quality1,
+			quality2: quality2,
+			defaults: defaults,
+			bestFood: bestFood,
+			available: available
+r)
 
 	}
 
@@ -128,8 +139,8 @@ Tank.findById(id, function (err, tank) {
     res.send(updatedTank);
   });
 });
-*/
 
+*/
 	removeKitten(name, color) {
 
 		this.cat.findOne({
