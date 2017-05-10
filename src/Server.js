@@ -14,7 +14,6 @@ export default class Server {
 
         this.app.get('/kittens/', kittensCtrl.findKittens);
         this.app.post('/kittens/', kittensCtrl.addKitten);
-        this.app.get('/kittens/', kittensCtrl.kittensAdopt);
         this.app.get('/kittens/:id', kittensCtrl.findKitten);
         this.app.put('/kittens/:id', kittensCtrl.updateKitten);
         this.app.delete('/kittens/:id', kittensCtrl.deleteKitten);
