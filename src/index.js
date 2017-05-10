@@ -2,7 +2,6 @@ import Connection from './Connection';
 import Server from './Server';
 import yaml from 'yamljs';
 import path from 'path';
-import Server from './Server';
 import Kitten from './Kitten';
 
 

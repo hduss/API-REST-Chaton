@@ -17,19 +17,13 @@
 	<img src="img/chaton.jpg">
 	</header>
 
-	{{ kittens }}
+	<h1>Liste des chatons</h1>
 
-	<h1>Chatons</h1>
-		<p>
+		<ul>
 		    {% for kitten in kittens %}
-		        {{ kitten.name|e }}
-		        {{ kitten.color|e }}
-		        {{ kitten.quality1|e }}
-		        {{ kitten.quality2|e }}
-		        {{ kitten.bestfood|e }}
-		        {{ kitten.available|e }}
+		        <li>{{ kitten.name ~ " - " ~ kitten.color ~ " - " ~ kitten.quality1 ~ " - " ~ kitten.quality2 ~ " - " ~ kitten.bestFood ~ " - " ~ kitten.available|e }}</li>
 		    {% endfor %}
-		</p>
+		</ul>
 
 	<p class="text-center text-muted">Copyright 2017 Kittens</p>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
