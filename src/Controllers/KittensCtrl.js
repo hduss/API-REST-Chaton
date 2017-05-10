@@ -6,11 +6,12 @@ export default class KittensCtrl {
     constructor(kitten) {
         this.kitten = kitten;
 
+
         }
 
 
     findKittens(req, res) {
-        // importer class Théo + methods
+
         const kittens = this.kitten.findKittens();
         kittens
             .then(result => {
@@ -18,13 +19,12 @@ export default class KittensCtrl {
                     kittens: result
                 });
             })
-            .catch()
+            .catch(e => console.log(e))
         ;
-        
     }
 
     addKitten(req, res) {
-        const kittens = this.kitten.findKittens();
+        const kittens = this.kitten.addKitten();
         kittens
             .then(result => {
                 res.render('index.twig', {
@@ -36,25 +36,25 @@ export default class KittensCtrl {
     }
 
     kittensAdopt(req, res) {
-        res.render('kittensAdopt.ejs', {
+        res.render('kittensAdopt.twig', {
             kittens: kittens
         });
     }
 
     findKitten(req, res) {
-        res.render('findKitten.ejs', {
+        res.render('findKitten.twig', {
             kittens: kittens
         });
     }
 
     updateKitten(req, res) {
-        res.render('updateKitten.ejs', {
+        res.render('updateKitten.twig', {
             kittens: kittens
         });
     }
 
     deleteKitten(req, res) {
-        res.render('deleteKitten.ejs', {
+        res.render('deleteKitten.twig', {
             kittens: kittens
         });
     }

@@ -1,5 +1,5 @@
-import express from 'express';
 import KittensCtrl from './Controllers/KittensCtrl';
+import express from 'express';
 
 export default class Server {
     constructor(port, kitten) {
@@ -15,7 +15,6 @@ export default class Server {
 
         this.app.get('/kittens/', kittensCtrl.findKittens.bind(kittensCtrl));
         this.app.post('/kittens/', kittensCtrl.addKitten);
-        this.app.get('/kittens/', kittensCtrl.kittensAdopt);
         this.app.get('/kittens/:id', kittensCtrl.findKitten);
         this.app.put('/kittens/:id', kittensCtrl.updateKitten);
         this.app.delete('/kittens/:id', kittensCtrl.deleteKitten);
