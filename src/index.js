@@ -26,6 +26,8 @@ connection.connect(config.default.db.ip_address,config.default.db.port,config.de
 
 	
 */
+	
+	cats.updateKitten('boby', 'red', 'gentil', 'serviable', 'pue', 'viande', true);
 
 
 

@@ -104,6 +104,38 @@ export default class Kitten{
 
 	}
 
+	updateKitten(name, color, quality1, quality2, defaults, bestFood, available ) {
+
+
+		this.cat.findOne({
+
+	    	name: name
+
+	    }).then(
+
+	    	results => {
+	    		results.color = color,
+	    		results.quality1 = quality1,
+	    		results.quality2 = quality2,
+	    		results.defaults = defaults,
+	    		results.bestFood = bestFood,
+	    		results.available = available;
+
+	    		results.save().then(
+
+	    			resultSaved => console.log(resultSaved)
+
+	    		).catch( e => console.log(e.message));
+	    	}
+
+	    ).catch( e => console.log(e.message));
+		
+
+	}
+
+
+
+
 /*
 	updateKitten(name, color, quality1, quality2, defaults, bestFood, available, (err, tank) => {
 
