@@ -24,10 +24,6 @@ connection.connect(config.default.db.ip_address,config.default.db.port,config.de
 		
 		// console.log(cats);
 
-		// cats.addKitten('boby2', 'green', 'doux', 'calin', 'timide', 'poulet', true);
-
-
-	
 
 
 
