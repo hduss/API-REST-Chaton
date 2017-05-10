@@ -10,7 +10,6 @@ export default class KittensCtrl {
 
 
     findKittens(req, res) {
-        // importer class Théo + methods
         const kittens = this.kitten.findKittens();
         kittens
             .then(result => {
@@ -18,7 +17,7 @@ export default class KittensCtrl {
                     kittens: result
                 });
             })
-            .catch()
+            .catch(e => console.log(e))
         ;
         
     }

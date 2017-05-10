@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-	</head>
+<head>
+	<meta charset="utf-8">
+	<title>Kittens</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<script type="text/javascript" src="ejs_production.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
 <body>
 	<header>
 	<img src="img/chaton.jpg">
@@ -9,5 +19,19 @@
 
 	{{ kittens }}
 
+	<h1>Chatons</h1>
+		<p>
+		    {% for kitten in kittens %}
+		        {{ kitten.name|e }}
+		        {{ kitten.color|e }}
+		        {{ kitten.quality1|e }}
+		        {{ kitten.quality2|e }}
+		        {{ kitten.bestfood|e }}
+		        {{ kitten.available|e }}
+		    {% endfor %}
+		</p>
+
+	<p class="text-center text-muted">Copyright 2017 Kittens</p>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 </body>
 </html>
