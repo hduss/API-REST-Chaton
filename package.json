@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/hduss/API-REST-Chaton/issues"
   },
-  "homepage": "https://github.com/hduss/API-REST-Chaton#readme"
+  "homepage": "https://github.com/hduss/API-REST-Chaton#readme",
+  "dependencies": {
+    "mongoose": "^4.9.8"
+  }
 }
