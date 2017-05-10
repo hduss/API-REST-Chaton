@@ -2,7 +2,6 @@ import Connection from './Connection';
 import Server from './Server';
 import yaml from 'yamljs';
 import path from 'path';
-import Server from './Server';
 import Kitten from './Kitten';
 
 
@@ -25,10 +24,6 @@ connection.connect(config.default.db.ip_address,config.default.db.port,config.de
 		
 		// console.log(cats);
 
-		// cats.addKitten('boby2', 'green', 'doux', 'calin', 'timide', 'poulet', true);
-
-
-	
 
 
 

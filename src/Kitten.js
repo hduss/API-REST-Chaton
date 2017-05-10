@@ -30,131 +30,163 @@ export default class Kitten{
 
 	addKitten(name, color, quality1, quality2, defaults, bestFood, available) {
 
-		this.cat.create({
+		return new Promise ((resolve, reject) => {
 
-			name: name,
-			color: color,
-			quality1: quality1,
-			quality2: quality2,
-			defaults: defaults,
-			bestFood: bestFood,
-			available: available
+			this.cat.create({
 
-		})
-			.then(
+				name: name,
+				color: color,
+				quality1: quality1,
+				quality2: quality2,
+				defaults: defaults,
+				bestFood: bestFood,
+				available: available
 
-				result => console.log(result)
-				)
+			})
+				.then(
 
-			.catch( e => console.log(e.message))
+					results => resolve(results)
+					)
 
-			;
+				.catch( e => reject(e.message));
+		});
+
+
+
 	}
+
+
+
 
 	findKitten(name, color) {
 
-		this.cat.findOne({
+		return new Promise((resolve, reject) => {
 
-			name: name,
-			color: color
+			this.cat.findOne({
 
-		})
+				name: name,
+				color: color
 
-		.then(
+			})
 
-			result => console.log(result)
-			)
+			.then(result => resolve(result)
+				)
 
-		.catch( e => console.log(e.message));
+			.catch( e => reject(e.message));
+			
+		});
+
 
 	}
+
 
 
 
 	findKittens() {
+
 		return new Promise((resolve, reject) => {
 			this.cat.find()
 				.then(results => resolve(results))
 				.catch( e => reject(e.message));
 		});
+
 	}
+
 
 
 	// param -> true || false
 	kittensAdopt(param) {
 
-		this.cat.findOne({
+		return new Promise((resolve, reject) => {
 
-			available: param
 
-		}).then(
+			this.cat.find({
 
-			results => console.log(results)
+				available: param
 
-		).catch( e => console.log(e.message));
+			}).then(
+
+				results => resolve(results)
+
+			).catch( e => reject(e.message));
+
+			
+		});
+
 
 
 	}
 
-/*
-	updateKitten(name, color, quality1, quality2, defaults, bestFood, available, (err, tank) => {
 
-		if (err) return handlError(err);
+	updateKitten(name, color, quality1, quality2, defaults, bestFood, available ) {
 
-	}) {
+		return new Promise((resolve, reject) => {
 
-		this.cat.findOne({
 
-			name: name;
+			console.log(this.color);
 
-		}).then(
+			this.cat.findOne({
 
-			name = name,
-			color: color,
-			quality1: quality1,
-			quality2: quality2,
-			defaults: defaults,
-			bestFood: bestFood,
-			available: available
-r)
+		    	name: name
+
+		    }).then(
+
+		    	results => {
+		    		results.color = color,
+		    		results.quality1 = quality1,
+		    		results.quality2 = quality2 || this.quality2,
+		    		results.defaults = defaults || this.defaults,
+		    		results.bestFood = bestFood || this.besFood,
+		    		results.available = available;
+
+		    		results.save().then(
+
+		    			resultSaved => resolve(resultSaved)
+
+		    		).catch( e => reject(e.message));
+		    	}
+
+		    ).catch( e => console.log(e.message));
+
+			
+		});
+
+		
 
 	}
 
 
 
-Tank.findById(id, function (err, tank) {
-  if (err) return handleError(err);
-  
-  tank.size = 'large';
-  tank.save(function (err, updatedTank) {
-    if (err) return handleError(err);
-    res.send(updatedTank);
-  });
-});
-
-*/
 	removeKitten(name, color) {
 
-		this.cat.findOne({
+		return new Promise((resolve, reject) => {
 
-			name: name,
-			color: color
-		}).then(
+			this.cat.findOne({
 
-			result => {
+				name: name,
+				color: color
 
-				this.cat.remove({name: result.name})
+			}).then(
 
-				.then(
+				result => {
 
-					result => console.log(result)
-					)
-				.catch( e => console.log(e.message));
+					this.cat.remove({name: result.name})
 
-			});
+					.then(
+
+						result => resolve(result)
+						)
+					.catch( e => reject(e.message));
+
+				});
+
+
+
+			
+		});
+
 	}
 
 
 }
-
 
