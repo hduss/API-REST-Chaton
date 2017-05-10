@@ -69,9 +69,7 @@ export default class Kitten{
 
 			})
 
-			.then(
-
-				result => resolve(result)
+			.then(result => resolve(result)
 				)
 
 			.catch( e => reject(e.message));
@@ -192,11 +190,3 @@ export default class Kitten{
 
 }
 
-
-findKittens() {
-        return new Promise((resolve, reject) => {
-            this.cat.find()
-                .then(results => resolve(results))
-                .catch( e => reject(e.message));
-        });
-    }
