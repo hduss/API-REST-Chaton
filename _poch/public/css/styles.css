@@ -1,7 +1,6 @@
 #kittens .row .col{
     background: #4A5E99;
     border-radius: 5px;
-    border: solid;
     border-color: black;
     margin-bottom: 5px;
     padding: 5px;
@@ -49,4 +48,12 @@ input {
 body {
     background-image:url(/../img/chaton2.jpg);
     background-size: cover;
+}
+
+#info{
+    display: none;
+}
+
+#modif{
+    display: none;
 }
