@@ -43,12 +43,13 @@ $(document).ready(function() {
         const id = $('#id').val();
 
             const data ={
-                "name" : $('#name').val(),
-                "color" : $('#color').val(),
-                "quality1" : $('#quality1').val(),
-                "quality2" : $('#quality2').val(),
-                "defaults" : $('#defaults').val(),
-                "bestFood" : $('#bestFood').val()
+                "name" : $('#formModif #name').val(),
+                "color" : $('#formModif #color').val(),
+                "quality1" : $('#formModif #quality1').val(),
+                "quality2" : $('#formModif #quality2').val(),
+                "defaults" : $('#formModif #defaults').val(),
+                "bestFood" : $('#formModif #bestFood').val(),
+                "available" : $('input[name=available]:checked').val()
             };
 
             $.ajax({
@@ -58,19 +59,24 @@ $(document).ready(function() {
                 success: function(response) {
                     //success
                     if (response.errmsg === undefined){
+                        console.log(response);
                         $("#info h3").text(response.name);
                         $("#info #color").text(`color : ${response.color}`);
                         $("#info #quality1").text(`quality 1 : ${response.quality1}`);
                         $("#info #quality2").text(`quality 2 : ${response.quality2}`);
-                        $("#info #default").text(`default : ${response.default}`);
+                        $("#info #default").text(`default : ${response.defaults}`);
                         $("#info #bestFood").text(`best food : ${response.bestFood}`);
                         $("#info #available").text(`available : ${response.available}`);
                         $("#info #btnModif").click(function(){modifFormKitten(id);});
                         $("#info #btnDelete").click(function(){deleteKitten(id);});
                         $("#info").css( "display", "unset" );
                         $("#modif").css( "display", "none" );
+
+                        $(`#${response._id} h3`).text(response.name);
+                        $(`#${response._id} p`).text(`available : ${response.available}`);
                     } else {
                         alert('error');
+                        console.log(response.errmsg);
                     }
                 },
                 error: function(response) {
@@ -94,7 +100,7 @@ function more(id){
                 $("#info #color").text(`color : ${response.color}`);
                 $("#info #quality1").text(`quality 1 : ${response.quality1}`);
                 $("#info #quality2").text(`quality 2 : ${response.quality2}`);
-                $("#info #default").text(`default : ${response.default}`);
+                $("#info #default").text(`default : ${response.defaults}`);
                 $("#info #bestFood").text(`best food : ${response.bestFood}`);
                 $("#info #available").text(`available : ${response.available}`);
                 $("#info #btnModif").click(function(){modifFormKitten(id);});
@@ -129,7 +135,7 @@ function deleteKitten(id){
                 if (response.errmsg === undefined){
                     $("#info").css( "display", "none" );
                     $("#modif").css( "display", "none" );
-                    $( "#" + id ).remove();
+                    $( `#${id}`).remove();
                     alert(response.message);
                 } else {
                     alert('error !!');
