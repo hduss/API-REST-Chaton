@@ -90,7 +90,7 @@ hr {
     color: #566EB2;
 }
 
-p {
+.champsObligatoires {
     font-weight: bold;
     float: right;
 }
