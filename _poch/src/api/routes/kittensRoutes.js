@@ -4,9 +4,15 @@ module.exports = (app) => {
     //Routes
     app.route('/')
         .get(kittens.listAll)
+    ;
+
+    app.route('/kittens')
+        .get(kittens.getAll)
+    ;
 
     app.route('/add')
-        .post(kittens.addKitten);
+        .post(kittens.addKitten)
+    ;
 
     app.route('/kittens/:id')
         .get(kittens.getOne)

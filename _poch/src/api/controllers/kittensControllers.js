@@ -12,6 +12,14 @@ exports.listAll = (req, res) => {
     });
 };
 
+exports.getAll = (req, res) => {
+    Kitten.find({}, (err, kittens) => {
+        if (err)
+            res.send(err);
+        res.json(kittens);
+    });
+};
+
 exports.addKitten = (req, res) => {
     const newKitten = new Kitten(req.body);
     newKitten.save((err, kitten) => {
