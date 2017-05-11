@@ -20,17 +20,11 @@ $(document).ready(function() {
                 //success
                 if (response.errmsg === undefined){
                     $("#kittens .row").append(
-                        '<div class="col col-lg-2">' +
-                            '<h3>'+response.name+'</h3>' +
-                            '<ul>' +
-                                '<li>Color : '+response.color+'</li>' +
-                                '<li>Quality 1 : '+response.quality1+'</li>' +
-                                '<li>Quality 1 : '+response.quality2+'</li>' +
-                                '<li>Default : '+response.default+'</li>' +
-                                '<li>Best Food : '+response.bestFood+'</li>' +
-                                '<li>Available : '+response.available+'</li>' +
-                            '</ul>' +
-                        '</div>'
+                        `<div class="col col-md-2">
+                            <h3>${response.name}</h3>
+                            <p>Available : ${response.available}</p>
+                            <button onclick="more('${response._id}')">More</button>
+                        </div>`
                     );
                 } else {
                     alert('error : kitten name already taken');
