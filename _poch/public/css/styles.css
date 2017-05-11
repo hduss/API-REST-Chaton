@@ -1,16 +1,23 @@
 #kittens .row .col{
-    background: #7FFFD4;
+    background: #4A5E99;
     border-radius: 5px;
     border: solid;
-}
-
-#form {
-    background: #F0FFFF;
+    border-color: black;
+    margin-bottom: 5px;
     padding: 5px;
 }
 
+#form {
+    background: #7B9DFF;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
 .container {
-    background: #606060;
+    background: #5C76BF;
+    border-radius: 5px;
+    color: #F0F8FF;
 }
 
 #form label {
@@ -19,5 +26,27 @@
 }
 
 .justify-content-md-center {
-    background: #404040;
+    background: #566EB2;
+    color: #F0F8FF;
+}
+
+#content #kittendetail h2, h3 {
+    text-decoration: underline;
+}
+
+#content #kittendetail li {
+    text-align: center;
+}
+
+button {
+    color: black;
+}
+
+input {
+    color: black;
+}
+
+body {
+    background-image:url(/../img/chaton2.jpg);
+    background-size: cover;
 }
