@@ -3,3 +3,12 @@
     margin: 5px;
     border-radius: 5px;
 }
+
+#form {
+    background: #505050;
+    padding: 5px;
+}
+
+.container {
+    background: #606060;
+}
