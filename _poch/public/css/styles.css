@@ -50,17 +50,35 @@
 
 #modif{
     display: none;
+    position: relative;
+}
+
+#modif form {
+    background-color: #F0F8FF;
+    color: #5C76BF;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+#btnCancel {
+    position: absolute;
+    left: 81px;
+    top: 296px;
 }
 
 button {
-    color: black;
+    color: #353F85;
     background-color: #F0F8FF;
     border-radius: 5px;
-    border-color: #5C76BF;
+    font-weight: bold;
 }
 
 input {
-    color: black;
+    color: #353F85;
+    background-color: #F0F8FF;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
 body {
@@ -74,5 +92,21 @@ hr {
 
 p {
     font-weight: bold;
+    float: right;
+}
+
+#closeDetail {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: 0;
+    float: right;
+}
+
+#closeDetailKitten {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: 0;
     float: right;
 }
