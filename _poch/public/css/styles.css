@@ -1,5 +1,5 @@
 #kittens .row .col{
-    background: #4A5E99;
+    background: #353F85;
     border-radius: 5px;
     border-color: black;
     margin-bottom: 5px;
@@ -14,7 +14,7 @@
 }
 
 .container {
-    background: #5C76BF;
+    background: #566EB2;
     border-radius: 5px;
     color: #F0F8FF;
 }
@@ -69,7 +69,7 @@ body {
 }
 
 hr {
-    color: #4A5E99;
+    color: #566EB2;
 }
 
 p {
