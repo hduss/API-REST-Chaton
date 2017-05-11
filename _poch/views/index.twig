@@ -33,12 +33,47 @@
 </header>
 
 <div id="content">
-    <div id="kittendetail" class="container"></div>
+    <div id="kittendetail" class="container">
+        <div id="info">
+            <button onclick="closeDetail()">X</button>
+            <h2>Kitten Detail</h2>
+            <h3></h3>
+            <ul>
+                <li id="color"></li>
+                <li id="quality1"></li>
+                <li id="quality2"></li>
+                <li id="default"></li>
+                <li id="bestFood"></li>
+                <li id="available"></li>
+            </ul>
+            <button id="btnModif">Modifiy</button>
+            <button id="btnDelete">Delete</button>
+        </div>
+        <div id="modif">
+            <button onclick="closeDetail()">X</button>
+            <h2>Kitten Detail</h2>
+            <form id="formModif">
+                <input type="hidden" name="id" id="id"><br>
+                <label for="name">Name : </label><input type="text" name="name" id="name" required><br>
+                <label for="color">Color : </label><input type="text" name="color" id="color" required><br>
+                <label for="quality1">Quality 1 : </label><input type="text" name="quality1" id="quality1" required><br>
+                <label for="quality2">quality 2 : </label><input type="text" name="quality2" id="quality2"><br>
+                <label for="defaults">Defaults : </label><input type="text" name="defaults" id="defaults"><br>
+                <label for="bestFood">Best Food : </label><input type="text" name="bestFood" id="bestFood"><br>
+                Available :
+                <label for="available-yes">Yes : </label><input type="radio" value="true" name="available" id="available-yes">
+                <label for="available-no">No : </label><input type="radio" value="false" name="available" id="available-no">
+                <br/>
+                <input type="submit" value="Modify">
+            </form>
+            <button id="btnCancel">Cancel</button>
+        </div>
+    </div>
     <div id="kittens" class="container">
         <h2>Kitten List</h2>
         <div class="row">
         {% for kitten in kittens %}
-            <div class="col col-md-2">
+            <div class="col col-md-2" id="{{ kitten._id }}">
                 <h3>{{ kitten.name }}</h3>
                 <p>Available : {{ kitten.available }}</p>
                 <button onclick="more('{{ kitten._id }}')">More</button>

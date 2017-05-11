@@ -21,3 +21,11 @@
 .justify-content-md-center {
     background: #404040;
 }
+
+#info{
+    display: none;
+}
+
+#modif{
+    display: none;
+}

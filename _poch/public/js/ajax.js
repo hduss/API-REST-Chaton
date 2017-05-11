@@ -19,13 +19,13 @@ $(document).ready(function() {
             success: function(response) {
                 //success
                 if (response.errmsg === undefined){
-                    $("#kittens .row").append(
-                        `<div class="col col-md-2">
+                    $("#kittens .row").append(`
+                        <div class="col col-md-2">
                             <h3>${response.name}</h3>
                             <p>Available : ${response.available}</p>
                             <button onclick="more('${response._id}')">More</button>
-                        </div>`
-                    );
+                        </div>
+                   `);
                 } else {
                     alert('error : kitten name already taken');
                 }
@@ -34,6 +34,49 @@ $(document).ready(function() {
                 console.log(response);
             }
         });
+    });
+
+    //kitten modif
+    $('#formModif').on('submit', (event) => {
+        event.preventDefault();
+
+        const id = $('#id').val();
+
+            const data ={
+                "name" : $('#name').val(),
+                "color" : $('#color').val(),
+                "quality1" : $('#quality1').val(),
+                "quality2" : $('#quality2').val(),
+                "defaults" : $('#defaults').val(),
+                "bestFood" : $('#bestFood').val()
+            };
+
+            $.ajax({
+                method: 'PUT',
+                url: '/kittens/' + id,
+                data: data,
+                success: function(response) {
+                    //success
+                    if (response.errmsg === undefined){
+                        $("#info h3").text(response.name);
+                        $("#info #color").text(`color : ${response.color}`);
+                        $("#info #quality1").text(`quality 1 : ${response.quality1}`);
+                        $("#info #quality2").text(`quality 2 : ${response.quality2}`);
+                        $("#info #default").text(`default : ${response.default}`);
+                        $("#info #bestFood").text(`best food : ${response.bestFood}`);
+                        $("#info #available").text(`available : ${response.available}`);
+                        $("#info #btnModif").click(function(){modifFormKitten(id);});
+                        $("#info #btnDelete").click(function(){deleteKitten(id);});
+                        $("#info").css( "display", "unset" );
+                        $("#modif").css( "display", "none" );
+                    } else {
+                        alert('error');
+                    }
+                },
+                error: function(response) {
+                    console.log(response);
+                }
+            });
     });
 });
 
@@ -47,20 +90,17 @@ function more(id){
         success: function(response) {
             //success
             if (response.errmsg === undefined){
-                console.log(response);
-                $("#kittendetail").html(
-                    `<button onclick="closeDetail()">X</button>
-                    <h2>Kitten Detail</h2>
-                    <h3>${response.name}</h3>
-                    <ul>
-                    <li>Color : ${response.color}</li>
-                    <li>Quality 1 : ${response.quality1}</li>
-                    <li>Quality 1 : ${response.quality2}</li>
-                    <li>Default : ${response.default}</li>
-                    <li>Best Food : ${response.bestFood}</li>
-                    <li>Available : ${response.available}</li>
-                    </ul>`
-                );
+                $("#info h3").text(response.name);
+                $("#info #color").text(`color : ${response.color}`);
+                $("#info #quality1").text(`quality 1 : ${response.quality1}`);
+                $("#info #quality2").text(`quality 2 : ${response.quality2}`);
+                $("#info #default").text(`default : ${response.default}`);
+                $("#info #bestFood").text(`best food : ${response.bestFood}`);
+                $("#info #available").text(`available : ${response.available}`);
+                $("#info #btnModif").click(function(){modifFormKitten(id);});
+                $("#info #btnDelete").click(function(){deleteKitten(id);});
+                $("#info").css( "display", "unset" );
+                $("#modif").css( "display", "none" );
             } else {
                 alert('error !!');
             }
@@ -73,5 +113,66 @@ function more(id){
 
 //close
 function closeDetail(){
-    $("#kittendetail").html('');
+    $("#info").css( "display", "none" );
+    $("#modif").css( "display", "none" );
+};
+
+//delete kitten
+function deleteKitten(id){
+    const conf = confirm('Are you sure you want to delete this poor Kitten ?');
+    if (conf){
+        $.ajax({
+            method: 'DELETE',
+            url: '/kittens/' + id,
+            success: function(response) {
+                //success
+                if (response.errmsg === undefined){
+                    $("#info").css( "display", "none" );
+                    $("#modif").css( "display", "none" );
+                    $( "#" + id ).remove();
+                    alert(response.message);
+                } else {
+                    alert('error !!');
+                }
+            },
+            error: function(response) {
+                console.log(response);
+            }
+        });
+    }
+};
+
+//modify kitten
+function modifFormKitten(id){
+    $.ajax({
+        method: 'GET',
+        url: '/kittens/' + id,
+        success: function(response) {
+            //success
+            if (response.errmsg === undefined){
+
+                $("#info").css( "display", "none" );
+                $("#formModif #id").val(response._id);
+                $("#formModif #name").val(response.name);
+                $("#formModif #color").val(response.color);
+                $("#formModif #quality1").val(response.quality1);
+                $("#formModif #quality2").val(response.quality2);
+                $("#formModif #defaults").val(response.defaults);
+                $("#formModif #bestFood").val(response.bestFood);
+                $("#formModif #available-yes").prop("checked", false)
+                $("#formModif #available-no").prop("checked", true)
+                if(response.available){
+                    $("#available-yes").prop("checked", true)
+                    $("#available-no").prop("checked", false)
+                }
+                $("#modif #btnCancel").click(function(){more(id);});
+                $("#modif").css( "display", "unset" );
+            } else {
+                alert('error !!');
+            }
+        },
+        error: function(response) {
+            console.log(response);
+        }
+    });
 };
