@@ -59,7 +59,6 @@ $(document).ready(function() {
                 success: function(response) {
                     //success
                     if (response.errmsg === undefined){
-                        console.log(response);
                         $("#info h3").text(response.name);
                         $("#info #color").text(`color : ${response.color}`);
                         $("#info #quality1").text(`quality 1 : ${response.quality1}`);
@@ -156,6 +155,7 @@ function modifFormKitten(id){
         url: '/kittens/' + id,
         success: function(response) {
             //success
+
             if (response.errmsg === undefined){
 
                 $("#info").css( "display", "none" );
