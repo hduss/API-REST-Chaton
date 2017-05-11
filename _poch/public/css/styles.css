@@ -7,7 +7,7 @@
 }
 
 #form {
-    background: #7B9DFF;
+    background: #F0F8FF;
     border-radius: 5px;
     padding: 5px;
     margin-bottom: 15px;
@@ -26,6 +26,10 @@
 
 .justify-content-md-center {
     background: #566EB2;
+    color: #5C76BF;
+}
+
+.justify-content-md-center h1, h2 {
     color: #F0F8FF;
 }
 
@@ -33,12 +37,26 @@
     text-decoration: underline;
 }
 
-#content #kittendetail li {
-    text-align: center;
+#info{
+    display: none;
+}
+
+#info ul {
+    background-color: #F0F8FF;
+    color: #5C76BF;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#modif{
+    display: none;
 }
 
 button {
     color: black;
+    background-color: #F0F8FF;
+    border-radius: 5px;
+    border-color: #5C76BF;
 }
 
 input {
@@ -50,10 +68,11 @@ body {
     background-size: cover;
 }
 
-#info{
-    display: none;
+hr {
+    color: #4A5E99;
 }
 
-#modif{
-    display: none;
+p {
+    font-weight: bold;
+    float: right;
 }
