@@ -1,11 +1,11 @@
 #kittens .row .col{
-    background: #606060;
+    background: #7FFFD4;
     border-radius: 5px;
     border: solid;
 }
 
 #form {
-    background: #505050;
+    background: #F0FFFF;
     padding: 5px;
 }
 
