@@ -27,6 +27,7 @@
 .justify-content-md-center {
     background: #566EB2;
     color: #5C76BF;
+    border-radius: 5px;
 }
 
 .justify-content-md-center h1, h2 {
