@@ -33,21 +33,15 @@
 </header>
 
 <div id="content">
+    <div id="kittendetail" class="container"></div>
     <div id="kittens" class="container">
         <h2>Kitten List</h2>
-        <div class="row justify-content-md-center">
+        <div class="row">
         {% for kitten in kittens %}
             <div class="col col-md-2">
                 <h3>{{ kitten.name }}</h3>
-                <ul>
-                    <!--<li>Color : {{ kitten.color }}</li>
-                    <li>Quality 1 : {{ kitten.quality1 }}</li>
-                    <li>Quality 1 : {{ kitten.quality2 }}</li>
-                    <li>Default : {{ kitten.default }}</li>
-                    <li>Best Food : {{ kitten.bestFood }}</li>-->
-                    <li>Available : {{ kitten.available|e }}</li>
-                    <li><a href="{{ lien }}">En savoir plus </a></li>
-                </ul>
+                <p>Available : {{ kitten.available }}</p>
+                <button onclick="more('{{ kitten._id }}')">More</button>
             </div>
         {% endfor %}
         </div>
