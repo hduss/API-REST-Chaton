@@ -1,5 +1,5 @@
 #kittens .row .col{
-    background: #4A5E99;
+    background: #353F85;
     border-radius: 5px;
     border-color: black;
     margin-bottom: 5px;
@@ -7,14 +7,14 @@
 }
 
 #form {
-    background: #7B9DFF;
+    background: #F0F8FF;
     border-radius: 5px;
     padding: 5px;
     margin-bottom: 15px;
 }
 
 .container {
-    background: #5C76BF;
+    background: #566EB2;
     border-radius: 5px;
     color: #F0F8FF;
 }
@@ -26,6 +26,10 @@
 
 .justify-content-md-center {
     background: #566EB2;
+    color: #5C76BF;
+}
+
+.justify-content-md-center h1, h2 {
     color: #F0F8FF;
 }
 
@@ -33,16 +37,48 @@
     text-decoration: underline;
 }
 
-#content #kittendetail li {
-    text-align: center;
+#info{
+    display: none;
+}
+
+#info ul {
+    background-color: #F0F8FF;
+    color: #5C76BF;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#modif{
+    display: none;
+    position: relative;
+}
+
+#modif form {
+    background-color: #F0F8FF;
+    color: #5C76BF;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+#btnCancel {
+    position: absolute;
+    left: 81px;
+    top: 296px;
 }
 
 button {
-    color: black;
+    color: #353F85;
+    background-color: #F0F8FF;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
 input {
-    color: black;
+    color: #353F85;
+    background-color: #F0F8FF;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
 body {
@@ -50,10 +86,27 @@ body {
     background-size: cover;
 }
 
-#info{
-    display: none;
+hr {
+    color: #566EB2;
 }
 
-#modif{
-    display: none;
+p {
+    font-weight: bold;
+    float: right;
+}
+
+#closeDetail {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: 0;
+    float: right;
+}
+
+#closeDetailKitten {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: 0;
+    float: right;
 }
