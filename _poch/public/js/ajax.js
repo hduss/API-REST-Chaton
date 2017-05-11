@@ -136,6 +136,7 @@ function deleteKitten(id){
                     $("#info").css( "display", "none" );
                     $("#modif").css( "display", "none" );
                     $( `#${id}`).remove();
+                    $('#info #btnDelete').off('click');
                     alert(response.message);
                 } else {
                     alert('error !!');
